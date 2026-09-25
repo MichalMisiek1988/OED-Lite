@@ -71,7 +71,7 @@ class DeepSupervisionBlock(nn.Module):
 
 class UpsampleSkip(nn.Module):
     def forward(self, x, skip):
-        x = F.interpolate(x, size=skip.shape[2:], mode="nearest")
+        x = F.interpolate(x, size=skip.shape[2:], mode="bilinear")
         return torch.cat([x, skip], 1)
 
 
